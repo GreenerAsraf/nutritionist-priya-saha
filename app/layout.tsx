@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 import { siteConfig } from "@/lib/constants";
+import { ThemeProvider } from "@/lib/theme-context";
+import { LanguageProvider } from "@/lib/language-context";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -38,9 +40,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="bn"
+      suppressHydrationWarning
       className={`${cormorant.variable} ${dmSans.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans">{children}</body>
+      <body className="min-h-full flex flex-col font-sans">
+        <ThemeProvider>
+          <LanguageProvider>{children}</LanguageProvider>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

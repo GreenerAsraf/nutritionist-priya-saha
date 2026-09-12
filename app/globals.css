@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+/* ─── Light Mode CSS Variables ────────────────────────────────────────────── */
 :root {
   --background: #fafcfb;
   --foreground: #0f291e;
@@ -13,6 +14,24 @@
   --surface: #ffffff;
   --surface-alt: #f0fdf4;
   --border: #dcfce7;
+  --card-bg: #ffffff;
+}
+
+/* ─── Dark Mode CSS Variables ─────────────────────────────────────────────── */
+html.dark {
+  --background: #0b1a12;
+  --foreground: #e8f5ee;
+  --primary: #34d399;
+  --primary-light: #6ee7b7;
+  --primary-dark: #a7f3d0;
+  --accent: #fbbf24;
+  --accent-light: #fcd34d;
+  --accent-coral: #fb923c;
+  --muted: #86a898;
+  --surface: #0f2318;
+  --surface-alt: #0d1f15;
+  --border: #1d3a28;
+  --card-bg: #112219;
 }
 
 @theme inline {
@@ -42,6 +61,7 @@ body {
   color: var(--foreground);
   font-family: var(--font-dm-sans), system-ui, sans-serif;
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 ::selection {
@@ -49,25 +69,19 @@ body {
   color: var(--primary-dark);
 }
 
+/* ─── Scrollbar ────────────────────────────────────────────────────────────── */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
 /* ─── Shimmer & Glow Animations ───────────────────────────────────────────── */
 @keyframes shimmer {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(200%);
-  }
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
 }
 
 @keyframes pulseGlow {
-  0%, 100% {
-    opacity: 0.5;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.9;
-    transform: scale(1.06);
-  }
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.06); }
 }
 
 @keyframes ripplePulse {
@@ -85,33 +99,46 @@ body {
   }
 }
 
-.animate-shimmer {
-  animation: shimmer 2.5s infinite;
-}
+.animate-shimmer { animation: shimmer 2.5s infinite; }
+.animate-glow    { animation: pulseGlow 4s ease-in-out infinite; }
+.animate-ripple  { animation: ripplePulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
 
-.animate-glow {
-  animation: pulseGlow 4s ease-in-out infinite;
-}
-
-.animate-ripple {
-  animation: ripplePulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-/* ─── Glass & Pill Containers ─────────────────────────────────────────────── */
+/* ─── Glass & Pill Containers (light) ─────────────────────────────────────── */
 .glass-pill {
-  background: rgba(255, 255, 255, 0.88);
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(220, 252, 231, 0.8);
-  box-shadow: 0 10px 35px -5px rgba(5, 150, 105, 0.08), 0 2px 6px -1px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(220, 252, 231, 0.6);
+  box-shadow: 0 6px 24px -4px rgba(5, 150, 105, 0.06), 0 1px 4px -1px rgba(0, 0, 0, 0.04);
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .glass-pill-scrolled {
-  background: rgba(255, 255, 255, 0.94);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(16, 185, 129, 0.25);
-  box-shadow: 0 14px 40px -5px rgba(5, 150, 105, 0.14), 0 4px 10px -2px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(16, 185, 129, 0.22);
+  box-shadow: 0 10px 32px -5px rgba(5, 150, 105, 0.12), 0 3px 8px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* ─── Glass & Pill Containers (dark) ──────────────────────────────────────── */
+html.dark .glass-pill {
+  background: rgba(11, 26, 18, 0.55);
+  border: 1px solid rgba(52, 211, 153, 0.12);
+  box-shadow: 0 6px 24px -4px rgba(0, 0, 0, 0.35);
+}
+
+html.dark .glass-pill-scrolled {
+  background: rgba(11, 26, 18, 0.88);
+  border: 1px solid rgba(52, 211, 153, 0.2);
+  box-shadow: 0 10px 32px -5px rgba(0, 0, 0, 0.45), 0 3px 8px -2px rgba(0, 0, 0, 0.3);
+}
+
+/* ─── Transparent navbar (when at top) ────────────────────────────────────── */
+.navbar-transparent {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
 }
 
 /* ─── Vibrant Gradient Buttons ────────────────────────────────────────────── */
@@ -121,38 +148,32 @@ body {
   background: linear-gradient(135deg, #059669 0%, #10b981 50%, #047857 100%);
   color: #ffffff;
   font-weight: 600;
-  box-shadow: 0 8px 25px -4px rgba(16, 185, 129, 0.45);
+  box-shadow: 0 6px 20px -4px rgba(16, 185, 129, 0.4);
   transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .btn-vibrant:hover {
-  box-shadow: 0 12px 30px -4px rgba(16, 185, 129, 0.6);
-  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 26px -4px rgba(16, 185, 129, 0.55);
+  transform: translateY(-1px) scale(1.01);
 }
 
-.btn-vibrant:active {
-  transform: translateY(0) scale(0.98);
-}
+.btn-vibrant:active { transform: translateY(0) scale(0.98); }
 
 .btn-vibrant::after {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   background: linear-gradient(
     90deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.25) 50%,
-    rgba(255, 255, 255, 0) 100%
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.22) 50%,
+    rgba(255,255,255,0) 100%
   );
   transform: translateX(-100%);
 }
 
-.btn-vibrant:hover::after {
-  animation: shimmer 1.2s infinite;
-}
+.btn-vibrant:hover::after { animation: shimmer 1.2s infinite; }
 
 /* ─── Nav link animated underline ─────────────────────────────────────────── */
 .nav-link {
@@ -163,10 +184,8 @@ body {
 .nav-link::after {
   content: "";
   position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 100%;
-  height: 2px;
+  bottom: -4px; left: 0;
+  width: 100%; height: 2px;
   border-radius: 9999px;
   background: linear-gradient(90deg, #10b981, #f59e0b);
   transform: scaleX(0);
@@ -175,16 +194,12 @@ body {
 }
 
 .nav-link:hover::after,
-.nav-link:focus-visible::after {
-  transform: scaleX(1);
-}
+.nav-link:focus-visible::after { transform: scaleX(1); }
 
 /* ─── Social icon hover ────────────────────────────────────────────────────── */
 .social-icon {
   transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
-    color 0.2s ease,
-    border-color 0.2s ease,
-    background-color 0.2s ease;
+    color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
 }
 
 .social-icon:hover {
@@ -195,31 +210,23 @@ body {
 }
 
 /* ─── Footer link animated underline ──────────────────────────────────────── */
-.footer-link {
-  position: relative;
-}
+.footer-link { position: relative; }
 
 .footer-link::after {
   content: "";
   position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 100%;
-  height: 1.5px;
+  bottom: -2px; left: 0;
+  width: 100%; height: 1.5px;
   background: var(--primary-light);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.footer-link:hover::after {
-  transform: scaleX(1);
-}
+.footer-link:hover::after { transform: scaleX(1); }
 
 /* ─── Input focus ring ─────────────────────────────────────────────────────── */
-.form-input {
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
+.form-input { transition: border-color 0.2s ease, box-shadow 0.2s ease; }
 
 .form-input:focus {
   border-color: var(--primary-light);
@@ -234,26 +241,24 @@ body {
     border-color 0.3s ease;
 }
 
-/* ─── Reduced motion: turn off expensive decorative CSS animations ─────────── */
+/* ─── Dark mode: specific overrides ───────────────────────────────────────── */
+html.dark .form-input {
+  background: var(--surface);
+  color: var(--foreground);
+  border-color: var(--border);
+}
+
+html.dark .form-input::placeholder { color: var(--muted); opacity: 0.6; }
+
+/* ─── Reduced motion ───────────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.15ms !important;
     scroll-behavior: auto !important;
   }
-
-  .nav-link::after {
-    transition: none;
-  }
-
-  .social-icon {
-    transition: none;
-  }
-
-  .btn-vibrant::after {
-    animation: none;
-  }
+  .nav-link::after { transition: none; }
+  .social-icon { transition: none; }
+  .btn-vibrant::after { animation: none; }
 }

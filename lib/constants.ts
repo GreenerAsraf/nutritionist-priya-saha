@@ -17,6 +17,7 @@ export const siteConfig = {
 };
 
 export const navLinks = [
+  { href: "#gallery", label: "পুষ্টি গ্যালারি" },
   { href: "#about", label: "আমার সম্পর্কে" },
   { href: "#services", label: "সেবাসমূহ" },
   { href: "#approach", label: "চেম্বার ও সময়" },

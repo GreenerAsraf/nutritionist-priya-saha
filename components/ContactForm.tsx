@@ -3,12 +3,14 @@
 import { useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { CheckCircle2, Send } from "lucide-react";
+import { useT } from "@/lib/language-context";
 
 type FormState = "idle" | "submitting" | "success" | "error";
 
 export default function ContactForm() {
   const [state, setState] = useState<FormState>("idle");
   const reduced = useReducedMotion();
+  const t = useT();
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -40,17 +42,17 @@ export default function ContactForm() {
               <CheckCircle2 size={32} className="text-primary" />
             </div>
             <h3 className="text-xl font-semibold text-primary-dark">
-              বার্তা পাঠানো হয়েছে!
+              {t("form.success.title")}
             </h3>
             <p className="text-muted">
-              আমরা শীঘ্রই আপনার সাথে যোগাযোগ করব।
+              {t("form.success.desc")}
             </p>
             <button
               type="button"
               onClick={() => setState("idle")}
               className="mt-2 text-sm text-primary underline-offset-4 hover:underline"
             >
-              আরেকটি বার্তা পাঠান
+              {t("form.success.again")}
             </button>
           </motion.div>
         ) : (
@@ -68,10 +70,10 @@ export default function ContactForm() {
           >
             <div>
               <h3 className="text-xl font-semibold text-primary-dark">
-                অনলাইন অ্যাপয়েন্টমেন্ট ফর্ম
+                {t("form.title")}
               </h3>
               <p className="mt-1 text-sm text-muted">
-                ফর্ম পূরণ করুন, আমরা দ্রুত যোগাযোগ করব।
+                {t("form.subtitle")}
               </p>
             </div>
 
@@ -81,14 +83,14 @@ export default function ContactForm() {
                   htmlFor="contact-name"
                   className="mb-1.5 block text-sm font-medium text-primary-dark"
                 >
-                  পূর্ণ নাম <span aria-hidden="true" className="text-red-500">*</span>
+                  {t("form.name")} <span aria-hidden="true" className="text-red-500">*</span>
                 </label>
                 <input
                   id="contact-name"
                   name="name"
                   type="text"
                   required
-                  placeholder="আপনার নাম লিখুন"
+                  placeholder={t("form.name.placeholder")}
                   className="form-input w-full rounded-xl border border-border bg-background px-4 py-3 text-foreground placeholder:text-muted/60"
                 />
               </div>
@@ -98,7 +100,7 @@ export default function ContactForm() {
                   htmlFor="contact-age"
                   className="mb-1.5 block text-sm font-medium text-primary-dark"
                 >
-                  বয়স
+                  {t("form.age")}
                 </label>
                 <input
                   id="contact-age"
@@ -106,7 +108,7 @@ export default function ContactForm() {
                   type="number"
                   min="1"
                   max="120"
-                  placeholder="বয়স"
+                  placeholder={t("form.age.placeholder")}
                   className="form-input w-full rounded-xl border border-border bg-background px-4 py-3 text-foreground placeholder:text-muted/60"
                 />
               </div>
@@ -116,7 +118,7 @@ export default function ContactForm() {
                   htmlFor="contact-phone"
                   className="mb-1.5 block text-sm font-medium text-primary-dark"
                 >
-                  মোবাইল নম্বর <span aria-hidden="true" className="text-red-500">*</span>
+                  {t("form.phone")} <span aria-hidden="true" className="text-red-500">*</span>
                 </label>
                 <input
                   id="contact-phone"
@@ -133,13 +135,13 @@ export default function ContactForm() {
                   htmlFor="contact-problem"
                   className="mb-1.5 block text-sm font-medium text-primary-dark"
                 >
-                  মূল সমস্যা বা কোন বিষয়ে পরামর্শ চান
+                  {t("form.problem")}
                 </label>
                 <textarea
                   id="contact-problem"
                   name="problem"
                   rows={4}
-                  placeholder="আপনার সমস্যা সংক্ষেপে লিখুন..."
+                  placeholder={t("form.problem.placeholder")}
                   className="form-input w-full resize-none rounded-xl border border-border bg-background px-4 py-3 text-foreground placeholder:text-muted/60"
                 />
               </div>
@@ -155,12 +157,12 @@ export default function ContactForm() {
                 {state === "submitting" ? (
                   <>
                     <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />
-                    পাঠানো হচ্ছে...
+                    {t("form.submitting")}
                   </>
                 ) : (
                   <>
                     <Send size={16} aria-hidden="true" />
-                    সাবমিট করুন
+                    {t("form.submit")}
                   </>
                 )}
               </motion.button>

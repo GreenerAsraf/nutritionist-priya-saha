@@ -4,6 +4,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import ServiceIcon from "@/components/ServiceIcon";
 import { staggerContainer, staggerItem, reducedStaggerContainer, reducedStaggerItem } from "@/lib/motion";
+import { useT } from "@/lib/language-context";
 
 type Service = {
   icon: "leaf" | "heart" | "baby" | "utensils" | "activity" | "users";
@@ -17,6 +18,7 @@ interface Props {
 
 export default function ServiceCardsGrid({ services }: Props) {
   const reduced = useReducedMotion();
+  const t = useT();
 
   return (
     <motion.div
@@ -55,7 +57,7 @@ export default function ServiceCardsGrid({ services }: Props) {
             {service.description}
           </p>
           <div className="mt-5 flex items-center gap-1 text-sm font-medium text-primary-light">
-            <span>আরও জানুন</span>
+            <span>{t("services.learn")}</span>
             <motion.span
               aria-hidden="true"
               className="inline-block"

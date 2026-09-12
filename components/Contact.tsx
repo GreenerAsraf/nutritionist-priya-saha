@@ -1,9 +1,14 @@
+"use client";
+
 import { Mail, MapPin, Phone } from "lucide-react";
 import { siteConfig } from "@/lib/constants";
+import { useT } from "@/lib/language-context";
 import Reveal from "@/components/ui/Reveal";
 import ContactForm from "@/components/ContactForm";
 
 export default function Contact() {
+  const t = useT();
+
   return (
     <section id="contact" className="bg-surface-alt py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-6">
@@ -12,18 +17,17 @@ export default function Contact() {
           <div className="space-y-6">
             <Reveal variant="fadeUp">
               <p className="text-sm font-semibold uppercase tracking-widest text-primary-light">
-                অ্যাপয়েন্টমেন্ট
+                {t("contact.label")}
               </p>
             </Reveal>
             <Reveal variant="fadeUp" delay={0.08}>
               <h2 className="font-serif text-4xl font-semibold text-primary-dark md:text-5xl">
-                পরামর্শ নিতে আজই যোগাযোগ করুন
+                {t("contact.heading")}
               </h2>
             </Reveal>
             <Reveal variant="fadeUp" delay={0.14}>
               <p className="text-lg leading-relaxed text-muted">
-                সরাসরি চেম্বারে এসে বা অনলাইনে ফর্ম পূরণ করে অ্যাপয়েন্টমেন্ট নিন।
-                আপনার সমস্যার কথা জানান, আমরা দ্রুত যোগাযোগ করব।
+                {t("contact.desc")}
               </p>
             </Reveal>
 
@@ -34,9 +38,9 @@ export default function Contact() {
                     <Phone size={20} aria-hidden="true" />
                   </div>
                   <div>
-                    <p className="text-sm text-muted">ফোন (ম্যাক্স হসপিটাল)</p>
+                    <p className="text-sm text-muted">{t("contact.phone.max")}</p>
                     <a
-                      href={`tel:01713998166`}
+                      href="tel:01713998166"
                       className="font-medium text-primary-dark hover:text-primary transition-colors"
                     >
                       01713-998166, 01571-159059
@@ -48,9 +52,9 @@ export default function Contact() {
                     <Phone size={20} aria-hidden="true" />
                   </div>
                   <div>
-                    <p className="text-sm text-muted">ফোন (রাঙ্গুনিয়া হাসপাতাল)</p>
+                    <p className="text-sm text-muted">{t("contact.phone.rangamati")}</p>
                     <a
-                      href={`tel:01835705031`}
+                      href="tel:01835705031"
                       className="font-medium text-primary-dark hover:text-primary transition-colors"
                     >
                       01835-705031, 01835-870304
@@ -62,9 +66,9 @@ export default function Contact() {
                     <MapPin size={20} aria-hidden="true" />
                   </div>
                   <div>
-                    <p className="text-sm text-muted">চেম্বার</p>
+                    <p className="text-sm text-muted">{t("contact.chamber")}</p>
                     <p className="font-medium text-primary-dark">
-                      মেহেদীবাগ রোড, চট্টগ্রাম ও রাঙ্গুনিয়া, চট্টগ্রাম
+                      {t("contact.chamber.address")}
                     </p>
                   </div>
                 </li>
@@ -75,14 +79,14 @@ export default function Contact() {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-sm text-muted">ফেইসবুক পেজ</p>
+                    <p className="text-sm text-muted">{t("contact.fb.label")}</p>
                     <a
                       href={siteConfig.social.facebook}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="font-medium text-primary-dark hover:text-primary transition-colors"
                     >
-                      পুষ্টিবিদ প্রিয়া সাহা
+                      {t("contact.fb.name")}
                     </a>
                   </div>
                 </li>
