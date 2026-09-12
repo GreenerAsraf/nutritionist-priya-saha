@@ -1,38 +1,89 @@
+import { MapPin, Clock, Phone, Calendar, ArrowRight } from "lucide-react";
 import { approachSteps } from "@/lib/constants";
+import Reveal from "@/components/ui/Reveal";
+import StaggerReveal, { StaggerItem } from "@/components/ui/StaggerReveal";
 
 export default function Approach() {
   return (
-    <section id="approach" className="bg-primary-dark py-20 text-white md:py-28">
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="mx-auto mb-16 max-w-2xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest text-accent-light">
-            My Approach
-          </p>
-          <h2 className="mt-3 font-serif text-4xl font-semibold md:text-5xl">
-            How we work together
-          </h2>
-          <p className="mt-4 text-lg text-white/70">
-            A collaborative process that puts you at the center — no
-            one-size-fits-all prescriptions.
-          </p>
+    <section id="approach" className="bg-gradient-to-b from-emerald-950 via-emerald-900 to-emerald-950 py-20 text-white md:py-28">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="mx-auto mb-14 max-w-2xl text-center sm:mb-16">
+          <Reveal variant="fadeUp">
+            <span className="inline-block rounded-full bg-emerald-800/60 px-4 py-1.5 text-xs sm:text-sm font-semibold uppercase tracking-widest text-amber-300 border border-emerald-700">
+              চেম্বার ও সময়
+            </span>
+          </Reveal>
+          <Reveal variant="fadeUp" delay={0.08}>
+            <h2 className="mt-4 font-serif text-3xl font-bold sm:text-4xl md:text-5xl">
+              সাক্ষাতের সময় ও স্থান
+            </h2>
+          </Reveal>
+          <Reveal variant="fadeUp" delay={0.14}>
+            <p className="mt-4 text-base sm:text-lg text-emerald-100/80">
+              সরাসরি চেম্বারে এসে বা ঘরে বসেই অনলাইনে পরামর্শ নিন।
+            </p>
+          </Reveal>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-3">
-          {approachSteps.map((item) => (
-            <article
-              key={item.step}
-              className="relative rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm"
-            >
-              <span className="font-serif text-5xl font-bold text-accent/40">
-                {item.step}
-              </span>
-              <h3 className="mt-4 text-xl font-semibold">{item.title}</h3>
-              <p className="mt-3 leading-relaxed text-white/70">
-                {item.description}
-              </p>
-            </article>
-          ))}
-        </div>
+        <StaggerReveal className="grid gap-6 sm:gap-8 md:grid-cols-3">
+          {approachSteps.map((item, index) => {
+            const isOnline = index === 2;
+            const primaryPhone = index === 0 ? "01713998166" : index === 1 ? "01835705031" : null;
+
+            return (
+              <StaggerItem key={item.step}>
+                <article className="group relative flex flex-col justify-between rounded-3xl border border-emerald-500/20 bg-emerald-900/40 p-6 sm:p-8 backdrop-blur-md h-full transition-all duration-300 hover:border-emerald-400/50 hover:bg-emerald-900/70 hover:shadow-2xl hover:shadow-emerald-950/50">
+                  <div>
+                    <div className="flex items-center justify-between">
+                      <span className="font-serif text-4xl sm:text-5xl font-black bg-gradient-to-br from-amber-300 via-amber-400 to-amber-500/40 bg-clip-text text-transparent" aria-hidden="true">
+                        {item.step}
+                      </span>
+                      <span className="rounded-full bg-emerald-800/80 px-3 py-1 text-xs font-semibold text-emerald-200">
+                        {item.subtitle}
+                      </span>
+                    </div>
+
+                    <h3 className="mt-5 text-xl font-bold text-white group-hover:text-amber-300 transition-colors">
+                      {item.title}
+                    </h3>
+
+                    <div className="mt-5 space-y-3">
+                      <div className="flex items-start gap-3">
+                        <MapPin size={18} className="mt-0.5 shrink-0 text-amber-400" aria-hidden="true" />
+                        <p className="text-sm leading-relaxed text-emerald-100/80">{item.description}</p>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <Phone size={18} className="mt-0.5 shrink-0 text-amber-400" aria-hidden="true" />
+                        <p className="text-sm text-emerald-100/90 font-medium">{item.contact}</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Action Button */}
+                  <div className="mt-6 pt-5 border-t border-emerald-800/60">
+                    {primaryPhone ? (
+                      <a
+                        href={`tel:${primaryPhone}`}
+                        className="flex w-full items-center justify-center gap-2 rounded-2xl bg-emerald-600/90 py-3 text-sm font-bold text-white transition-all hover:bg-emerald-500 active:scale-95 shadow-md"
+                      >
+                        <Phone size={15} />
+                        <span>সরাসরি কল দিন</span>
+                      </a>
+                    ) : (
+                      <a
+                        href="#contact"
+                        className="flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-amber-500 to-amber-600 py-3 text-sm font-bold text-white transition-all hover:from-amber-400 hover:to-amber-500 active:scale-95 shadow-md"
+                      >
+                        <Calendar size={15} />
+                        <span>অনলাইন অ্যাপয়েন্টমেন্ট</span>
+                      </a>
+                    )}
+                  </div>
+                </article>
+              </StaggerItem>
+            );
+          })}
+        </StaggerReveal>
       </div>
     </section>
   );

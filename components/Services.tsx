@@ -1,39 +1,32 @@
 import { services } from "@/lib/constants";
 import ServiceIcon from "./ServiceIcon";
+import Reveal from "@/components/ui/Reveal";
+import ServiceCardsGrid from "@/components/ServiceCardsGrid";
 
 export default function Services() {
   return (
     <section id="services" className="py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-6">
         <div className="mx-auto mb-16 max-w-2xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest text-primary-light">
-            Services
-          </p>
-          <h2 className="mt-3 font-serif text-4xl font-semibold text-primary-dark md:text-5xl">
-            Nutrition care tailored to you
-          </h2>
-          <p className="mt-4 text-lg text-muted">
-            From weight management to specialized clinical support, every
-            service is designed around your unique needs and goals.
-          </p>
+          <Reveal variant="fadeUp">
+            <p className="text-sm font-semibold uppercase tracking-widest text-primary-light">
+              সেবাসমূহ
+            </p>
+          </Reveal>
+          <Reveal variant="fadeUp" delay={0.08}>
+            <h2 className="mt-3 font-serif text-4xl font-semibold text-primary-dark md:text-5xl">
+              আপনার জন্য বিজ্ঞানসম্মত পুষ্টি পরামর্শ
+            </h2>
+          </Reveal>
+          <Reveal variant="fadeUp" delay={0.14}>
+            <p className="mt-4 text-lg text-muted">
+              শারীরিক সুস্থতা ও বিভিন্ন জটিলতার কথা মাথায় রেখে আপনার জন্য
+              ব্যক্তিগত ডায়েট ও পুষ্টি পরামর্শ প্রদান করা হয়।
+            </p>
+          </Reveal>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => (
-            <article
-              key={service.title}
-              className="group rounded-2xl border border-border bg-surface p-7 transition-all hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5"
-            >
-              <ServiceIcon name={service.icon} />
-              <h3 className="mt-5 text-xl font-semibold text-primary-dark">
-                {service.title}
-              </h3>
-              <p className="mt-3 leading-relaxed text-muted">
-                {service.description}
-              </p>
-            </article>
-          ))}
-        </div>
+        <ServiceCardsGrid services={services} />
       </div>
     </section>
   );

@@ -1,17 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  --background: #faf8f5;
-  --foreground: #1b4332;
-  --primary: #2d6a4f;
-  --primary-light: #40916c;
-  --primary-dark: #1b4332;
-  --accent: #d4a373;
-  --accent-light: #e9c46a;
-  --muted: #52796f;
+  --background: #fafcfb;
+  --foreground: #0f291e;
+  --primary: #059669;
+  --primary-light: #10b981;
+  --primary-dark: #064e3b;
+  --accent: #f59e0b;
+  --accent-light: #fbbf24;
+  --accent-coral: #ea580c;
+  --muted: #4b6358;
   --surface: #ffffff;
-  --surface-alt: #f0f7f4;
-  --border: #d8e2dc;
+  --surface-alt: #f0fdf4;
+  --border: #dcfce7;
 }
 
 @theme inline {
@@ -22,6 +23,7 @@
   --color-primary-dark: var(--primary-dark);
   --color-accent: var(--accent);
   --color-accent-light: var(--accent-light);
+  --color-accent-coral: var(--accent-coral);
   --color-muted: var(--muted);
   --color-surface: var(--surface);
   --color-surface-alt: var(--surface-alt);
@@ -32,15 +34,226 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-dm-sans), system-ui, sans-serif;
+  overflow-x: hidden;
 }
 
 ::selection {
   background: color-mix(in srgb, var(--primary) 25%, transparent);
   color: var(--primary-dark);
+}
+
+/* ─── Shimmer & Glow Animations ───────────────────────────────────────────── */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes ripplePulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2.5s infinite;
+}
+
+.animate-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+.animate-ripple {
+  animation: ripplePulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* ─── Glass & Pill Containers ─────────────────────────────────────────────── */
+.glass-pill {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(220, 252, 231, 0.8);
+  box-shadow: 0 10px 35px -5px rgba(5, 150, 105, 0.08), 0 2px 6px -1px rgba(0, 0, 0, 0.04);
+}
+
+.glass-pill-scrolled {
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  box-shadow: 0 14px 40px -5px rgba(5, 150, 105, 0.14), 0 4px 10px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* ─── Vibrant Gradient Buttons ────────────────────────────────────────────── */
+.btn-vibrant {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #059669 0%, #10b981 50%, #047857 100%);
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: 0 8px 25px -4px rgba(16, 185, 129, 0.45);
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn-vibrant:hover {
+  box-shadow: 0 12px 30px -4px rgba(16, 185, 129, 0.6);
+  transform: translateY(-2px) scale(1.02);
+}
+
+.btn-vibrant:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.btn-vibrant::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.25) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: translateX(-100%);
+}
+
+.btn-vibrant:hover::after {
+  animation: shimmer 1.2s infinite;
+}
+
+/* ─── Nav link animated underline ─────────────────────────────────────────── */
+.nav-link {
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #10b981, #f59e0b);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* ─── Social icon hover ────────────────────────────────────────────────────── */
+.social-icon {
+  transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-3px) scale(1.1);
+  color: var(--primary);
+  border-color: var(--primary-light);
+  background-color: var(--surface-alt);
+}
+
+/* ─── Footer link animated underline ──────────────────────────────────────── */
+.footer-link {
+  position: relative;
+}
+
+.footer-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background: var(--primary-light);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.footer-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* ─── Input focus ring ─────────────────────────────────────────────────────── */
+.form-input {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-input:focus {
+  border-color: var(--primary-light);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 18%, transparent);
+  outline: none;
+}
+
+/* ─── Service card hover ───────────────────────────────────────────────────── */
+.service-card {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.3s ease;
+}
+
+/* ─── Reduced motion: turn off expensive decorative CSS animations ─────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.15ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .nav-link::after {
+    transition: none;
+  }
+
+  .social-icon {
+    transition: none;
+  }
+
+  .btn-vibrant::after {
+    animation: none;
+  }
 }

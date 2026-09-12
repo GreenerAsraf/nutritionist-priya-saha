@@ -1,11 +1,14 @@
 export const siteConfig = {
-  name: "Priya Saha",
-  title: "Priya Saha — Clinical Nutritionist",
+  name: "প্রিয়া সাহা",
+  title: "ডায়েটিশিয়ান এন্ড পুষ্টিবিদ প্রিয়া সাহা",
   description:
-    "Personalized nutrition guidance for lasting health. Priya Saha helps you build sustainable eating habits through evidence-based, compassionate care.",
+    "আপনার সুস্বাস্থ্য-ই, আপনার সম্পদ। সার্টিফাইড ডায়েটিশিয়ান ও পুষ্টিবিদ প্রিয়া সাহার কাছ থেকে বিজ্ঞানসম্মত ডায়েট ও পুষ্টি পরামর্শ নিন।",
+  quote: "আপনার সুস্বাস্থ্য-ই, আপনার সম্পদ।",
   email: "hello@priyasaha.com",
-  phone: "+880 1XXX-XXXXXX",
-  location: "Dhaka, Bangladesh",
+  phone: "+880 1713-998166",
+  phone2: "+880 1571-159059",
+  location: "চট্টগ্রাম, বাংলাদেশ",
+  facebook: "https://facebook.com/পুষ্টিবিদ-প্রিয়া-সাহা",
   social: {
     instagram: "https://instagram.com/priyasaha",
     facebook: "https://facebook.com/priyasaha",
@@ -14,97 +17,104 @@ export const siteConfig = {
 };
 
 export const navLinks = [
-  { href: "#about", label: "About" },
-  { href: "#services", label: "Services" },
-  { href: "#approach", label: "Approach" },
-  { href: "#testimonials", label: "Stories" },
-  { href: "#contact", label: "Contact" },
+  { href: "#about", label: "আমার সম্পর্কে" },
+  { href: "#services", label: "সেবাসমূহ" },
+  { href: "#approach", label: "চেম্বার ও সময়" },
+  { href: "#testimonials", label: "ভিডিও ও ব্লগ" },
+  { href: "#contact", label: "অ্যাপয়েন্টমেন্ট" },
 ];
 
 export const services = [
   {
-    icon: "leaf" as const,
-    title: "Weight Management",
+    icon: "heart" as const,
+    title: "ডায়াবেটিক রোগীর ডায়েট",
     description:
-      "Sustainable plans tailored to your lifestyle — no crash diets, just balanced nutrition that works long-term.",
+      "ডায়াবেটিস নিয়ন্ত্রণে বিজ্ঞানসম্মত ব্যক্তিগত ডায়েট পরিকল্পনা।",
   },
   {
-    icon: "heart" as const,
-    title: "Chronic Condition Support",
+    icon: "leaf" as const,
+    title: "ওজন নিয়ন্ত্রণ",
     description:
-      "Nutrition strategies for diabetes, PCOS, thyroid disorders, and heart health backed by clinical evidence.",
+      "ওজন বাড়ানো, কমানো বা আদর্শ ওজন বজায় রাখতে টেকসই ডায়েট।",
   },
   {
     icon: "baby" as const,
-    title: "Prenatal & Postnatal Nutrition",
+    title: "গর্ভবতী মা ও শিশু পুষ্টি",
     description:
-      "Guidance for mothers-to-be and new mothers to nourish themselves and their growing families.",
-  },
-  {
-    icon: "utensils" as const,
-    title: "Meal Planning",
-    description:
-      "Custom meal plans with local ingredients, easy recipes, and practical grocery lists you'll actually use.",
+      "গর্ভবতী মা এবং শিশুর পুষ্টি ও মেধা বিকাশে বিশেষজ্ঞ পরামর্শ।",
   },
   {
     icon: "activity" as const,
-    title: "Sports Nutrition",
+    title: "কিডনি ও হৃদরোগের ডায়েট",
     description:
-      "Fuel your training with optimized macros and timing strategies for peak performance and recovery.",
+      "কিডনি রোগীদের লো-প্রোটিন এবং হৃদরোগে লো-ফ্যাট ডায়েট পরিকল্পনা।",
   },
   {
     icon: "users" as const,
-    title: "Family Nutrition",
+    title: "PCOS ও ইনফার্টিলিটি ডায়েট",
     description:
-      "Help your whole household eat better with family-friendly plans that accommodate different needs.",
+      "PCOS ও বন্ধ্যাত্ব সমস্যায় হরমোন ব্যালেন্স করতে ডায়েট পরামর্শ।",
+  },
+  {
+    icon: "utensils" as const,
+    title: "জিম ও স্পোর্টস ডায়েট",
+    description:
+      "শারীরিক সক্ষমতা ও পারফরম্যান্স বাড়াতে অপ্টিমাইজড ডায়েট প্ল্যান।",
   },
 ];
 
 export const approachSteps = [
   {
-    step: "01",
-    title: "Understand You",
+    step: "০১",
+    title: "ম্যাক্স হসপিটাল লিঃ",
+    subtitle: "মেহেদীবাগ, চট্টগ্রাম",
     description:
-      "We start with a thorough assessment of your health history, lifestyle, preferences, and goals.",
+      "৩৫/৩৬, মেহেদীবাগ রোড, চট্টগ্রাম-৪০০০। রুম নং-২০৮, প্রতি রবিবার থেকে শুক্রবার — দুপুর ২টা থেকে ৬টা।",
+    contact: "01713-998166 | 01571-159059 | 031-630682",
   },
   {
-    step: "02",
-    title: "Personalize Your Plan",
+    step: "০২",
+    title: "রাঙ্গুনিয়া হেলথ কেয়ার হাসপাতাল",
+    subtitle: "রাঙ্গুনিয়া, চট্টগ্রাম",
     description:
-      "Every recommendation is tailored — your culture, schedule, and food preferences matter.",
+      "মহাজন বতল, চন্দ্রঘোনা, রাঙ্গুনিয়া, চট্টগ্রাম। প্রতি শনি, সোম ও বৃহস্পতিবার — সকাল ৯টা থেকে ১২টা।",
+    contact: "01835-705031 | 01835-870304",
   },
   {
-    step: "03",
-    title: "Support & Adjust",
+    step: "০৩",
+    title: "অনলাইন কনসালটেশন",
+    subtitle: "যেকোনো স্থান থেকে",
     description:
-      "Regular check-ins help us refine your plan as you progress, keeping you motivated and on track.",
+      "ঘরে বসেই অনলাইনে পরামর্শ নিন। ফেসবুক পেজের মাধ্যমে অ্যাপয়েন্টমেন্ট নিন অথবা নিচের ফর্ম পূরণ করুন।",
+    contact: "ফেইসবুক পেজ: পুষ্টিবিদ প্রিয়া সাহা",
   },
 ];
 
 export const testimonials = [
   {
     quote:
-      "Priya helped me manage my PCOS without feeling deprived. Her approach is practical and rooted in science — I've never felt more in control of my health.",
-    name: "Anika Rahman",
-    role: "Client since 2024",
+      "প্রিয়া ম্যামের পরামর্শে ডায়াবেটিস অনেকটাই নিয়ন্ত্রণে এসেছে। তাঁর ডায়েট প্ল্যান মেনে চলা খুব সহজ।",
+    name: "মোঃ আবদুল করিম",
+    role: "রোগী, ২০২৫",
   },
   {
     quote:
-      "As a busy professional, I thought healthy eating was impossible. Priya showed me simple swaps and meal prep tricks that fit my schedule perfectly.",
-    name: "Farhan Ahmed",
-    role: "Client since 2023",
+      "গর্ভকালীন সময়ে প্রিয়া ম্যামের পুষ্টি পরামর্শ আমার ও আমার শিশুর স্বাস্থ্য রক্ষায় অনেক সাহায্য করেছে।",
+    name: "সুমাইয়া বেগম",
+    role: "রোগী, ২০২৫",
   },
   {
     quote:
-      "During my pregnancy, Priya's guidance gave me peace of mind. She answered every question with patience and created a plan I could actually follow.",
-    name: "Nadia Islam",
-    role: "Client since 2025",
+      "মাত্র ৩ মাসে ১০ কেজি ওজন কমিয়েছি, কোনো ক্র্যাশ ডায়েট ছাড়াই। সত্যিই অসাধারণ অভিজ্ঞতা।",
+    name: "রাহেলা খাতুন",
+    role: "রোগী, ২০২৪",
   },
 ];
 
 export const credentials = [
-  "MSc in Clinical Nutrition",
-  "Registered Dietitian (RD)",
-  "5+ Years Clinical Experience",
-  "Certified Diabetes Educator",
+  "খাদ্য ও পুষ্টি, বিএসসি (অনার্স) – চবি",
+  "খাদ্য ও পুষ্টি, এমএসসি (মাস্টার্স) – ঢাবি",
+  "সার্টিফাইড ইন হিউম্যান হেলথ – ডায়েট & নিউট্রিশন",
+  "ক্লিনিক্যাল পুষ্টিবিদ হিসেবে প্রশিক্ষণপ্রাপ্ত",
+  "ডায়াবেটিক ও কিডনি ডায়েটে বিশেষ প্রশিক্ষণপ্রাপ্ত",
 ];
