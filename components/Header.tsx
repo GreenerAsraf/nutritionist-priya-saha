@@ -23,11 +23,11 @@ const easeExit: [number, number, number, number] = [0.45, 0, 0.55, 1];
 
 /** Maps nav link hrefs to their i18n keys. */
 const NAV_KEY_MAP: Record<string, string> = {
-  "#gallery":      "nav.gallery",
+  "#videos":       "nav.videos",
   "#about":        "nav.about",
   "#services":     "nav.services",
   "#approach":     "nav.approach",
-  "#testimonials": "nav.testimonials",
+  "#reviews":      "nav.reviews",
   "#contact":      "nav.contact",
 };
 
@@ -292,7 +292,7 @@ export default function Header() {
                     <p className={`text-[11px] ${isDark ? "text-emerald-400" : "text-muted"}`}>{t("nav.max.hours")}</p>
                   </div>
                   <a
-                    href="tel:01713998166"
+                    href="tel:01571159059"
                     className="flex items-center gap-1 rounded-full bg-emerald-600 px-2.5 py-1.5 text-xs font-bold text-white hover:bg-emerald-700"
                   >
                     <Phone size={11} />

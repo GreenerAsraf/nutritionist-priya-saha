@@ -7,11 +7,11 @@ import Reveal from "@/components/ui/Reveal";
 import { useT } from "@/lib/language-context";
 
 const NAV_KEY_MAP: Record<string, string> = {
-  "#gallery":      "nav.gallery",
+  "#videos":       "nav.videos",
   "#about":        "nav.about",
   "#services":     "nav.services",
   "#approach":     "nav.approach",
-  "#testimonials": "nav.testimonials",
+  "#reviews":      "nav.reviews",
   "#contact":      "nav.contact",
 };
 

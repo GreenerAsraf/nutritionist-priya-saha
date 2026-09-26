@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { CheckCircle2, Send } from "lucide-react";
+import { CheckCircle2, Send, AlertCircle } from "lucide-react";
 import { useT } from "@/lib/language-context";
 
 type FormState = "idle" | "submitting" | "success" | "error";
@@ -15,9 +15,34 @@ export default function ContactForm() {
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setState("submitting");
-    // Simulate network delay — replace with actual API call
-    await new Promise((r) => setTimeout(r, 1000));
-    setState("success");
+
+    const form = e.currentTarget;
+    const data = Object.fromEntries(new FormData(form).entries());
+
+    try {
+      // Web3Forms — free, unlimited submissions, no backend needed.
+      // Get your own access key at https://web3forms.com and replace the value below.
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: "YOUR_WEB3FORMS_ACCESS_KEY", // 🔑 Replace this
+          subject: "নতুন অ্যাপয়েন্টমেন্ট অনুরোধ — পুষ্টিবিদ প্রিয়া সাহা",
+          from_name: "Priya Saha Website",
+          ...data,
+        }),
+      });
+
+      const json = await res.json();
+      if (json.success) {
+        setState("success");
+        form.reset();
+      } else {
+        setState("error");
+      }
+    } catch {
+      setState("error");
+    }
   }
 
   const successProps = reduced
@@ -46,6 +71,29 @@ export default function ContactForm() {
             </h3>
             <p className="text-muted">
               {t("form.success.desc")}
+            </p>
+            <button
+              type="button"
+              onClick={() => setState("idle")}
+              className="mt-2 text-sm text-primary underline-offset-4 hover:underline"
+            >
+              {t("form.success.again")}
+            </button>
+          </motion.div>
+        ) : state === "error" ? (
+          <motion.div
+            key="error"
+            {...successProps}
+            className="flex flex-col items-center justify-center py-12 text-center gap-4"
+          >
+            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-red-50 dark:bg-red-900/20">
+              <AlertCircle size={32} className="text-red-500" />
+            </div>
+            <h3 className="text-xl font-semibold text-primary-dark">
+              {t("form.error.title")}
+            </h3>
+            <p className="text-muted">
+              {t("form.error.desc")}
             </p>
             <button
               type="button"

@@ -40,10 +40,10 @@ export default function Contact() {
                   <div>
                     <p className="text-sm text-muted">{t("contact.phone.max")}</p>
                     <a
-                      href="tel:01713998166"
+                      href="tel:01571159059"
                       className="font-medium text-primary-dark hover:text-primary transition-colors"
                     >
-                      01713-998166, 01571-159059
+                      01571-159059, 01713-998166
                     </a>
                   </div>
                 </li>
@@ -81,7 +81,7 @@ export default function Contact() {
                   <div>
                     <p className="text-sm text-muted">{t("contact.fb.label")}</p>
                     <a
-                      href={siteConfig.social.facebook}
+                      href="https://www.facebook.com/share/1DqbWJgtxS/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="font-medium text-primary-dark hover:text-primary transition-colors"

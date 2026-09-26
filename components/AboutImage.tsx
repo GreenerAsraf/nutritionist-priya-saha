@@ -22,11 +22,7 @@ export default function AboutImage() {
         />
       </motion.div>
 
-      {/* Accent badge */}
-      <div className="absolute -bottom-6 -right-6 rounded-2xl bg-primary px-6 py-4 text-white shadow-xl">
-        <p className="font-serif text-3xl font-bold">৫+</p>
-        <p className="text-sm text-white/80">বছরের অভিজ্ঞতা</p>
-      </div>
+
     </div>
   );
 }

@@ -11,11 +11,11 @@ export const translations: Record<Lang, Record<string, string>> = {
     "site.copyright": "সর্বস্বত্ব সংরক্ষিত।",
 
     // ── Nav ───────────────────────────────────────────────────────────────────
-    "nav.gallery": "পুষ্টি গ্যালারি",
+    "nav.videos": "ভিডিও ও রিলস",
     "nav.about": "আমার সম্পর্কে",
     "nav.services": "সেবাসমূহ",
     "nav.approach": "চেম্বার ও সময়",
-    "nav.testimonials": "ভিডিও ও ব্লগ",
+    "nav.reviews": "রেটিং ও মতামত",
     "nav.contact": "অ্যাপয়েন্টমেন্ট",
     "nav.appointment": "অ্যাপয়েন্টমেন্ট নিন",
     "nav.open": "মেনু খুলুন",
@@ -46,6 +46,19 @@ export const translations: Record<Lang, Record<string, string>> = {
     "hero.badge.science": "বিজ্ঞানসম্মত পুষ্টি",
     "hero.badge.plan": "ব্যক্তিগত ডায়েট চার্ট",
 
+    // ── Videos ────────────────────────────────────────────────────────────────
+    "videos.label": "ভিডিও ও স্বাস্থ্য টিপস",
+    "videos.heading": "নিয়মিত ভিডিও ও সচেতনতামূলক রিলস",
+    "videos.desc": "স্বাস্থ্য, পুষ্টি ও বিভিন্ন জটিল রোগ প্রতিরোধে ডায়েটিশিয়ান প্রিয়া সাহার সহজ ও বিজ্ঞানসম্মত ভিডিও পরামর্শগুলো দেখুন।",
+    "videos.badge.official": "অফিসিয়াল ফেসবুক পেজ",
+    "videos.watch.reel": "রিল ভিডিও দেখুন",
+    "videos.watch.page": "পেজের সব ভিডিও দেখুন",
+    "videos.follow": "ফেসবুক পেজে যুক্ত থাকুন",
+    "videos.cta.title": "নিয়মিত স্বাস্থ্য ও পুষ্টি টিপস পেতে চান?",
+    "videos.cta.desc": "আমার ফেসবুক পেজে নিয়মিত নতুন স্বাস্থ্য সচেতনতামূলক ভিডিও, ডায়েট টিপস এবং তথ্যমূলক রিল শেয়ার করা হয়। সরাসরি যুক্ত থাকতে ফলো করুন।",
+    "videos.cta.button": "👉 ফেসবুক পেজে সব ভিডিও ও রিল দেখুন",
+    "videos.cta.consult": "সরাসরি অ্যাপয়েন্টমেন্ট নিন",
+
     // ── About ─────────────────────────────────────────────────────────────────
     "about.label": "আমার সম্পর্কে",
     "about.heading": "আপনার সুস্থতাই আমার লক্ষ্য",
@@ -70,6 +83,14 @@ export const translations: Record<Lang, Record<string, string>> = {
     "approach.online": "অনলাইন অ্যাপয়েন্টমেন্ট",
 
     // ── Testimonials ──────────────────────────────────────────────────────────
+    // ── Reviews ──────────────────────────────────────────────────────────────────────────
+    "reviews.label": "রোগীদের মতামত",
+    "reviews.heading": "রেটিং ও মতামত",
+    "reviews.count": "টি মতামত",
+    "reviews.prev": "আগের পাতা",
+    "reviews.next": "পরের পাতা",
+
+    // ── Testimonials ──────────────────────────────────────────────────────────────────────────
     "testimonials.label": "রোগীদের কথা",
     "testimonials.heading": "সত্যিকারের অভিজ্ঞতা",
 
@@ -99,6 +120,8 @@ export const translations: Record<Lang, Record<string, string>> = {
     "form.success.title": "বার্তা পাঠানো হয়েছে!",
     "form.success.desc": "আমরা শীঘ্রই আপনার সাথে যোগাযোগ করব।",
     "form.success.again": "আরেকটি বার্তা পাঠান",
+    "form.error.title": "পাঠানো সম্ভব হয়নি!",
+    "form.error.desc": "দুঃখিত, একটি সমস্যা হয়েছে। অনুগ্রহ করে সরাসরি কল করুন বা আবার চেষ্টা করুন।",
 
     // ── Nutrition Carousel ────────────────────────────────────────────────────
     "nutrition.badge": "পুষ্টি ও সুস্থ জীবনধারা গ্যালারি",
@@ -139,11 +162,11 @@ export const translations: Record<Lang, Record<string, string>> = {
     "site.copyright": "All rights reserved.",
 
     // ── Nav ───────────────────────────────────────────────────────────────────
-    "nav.gallery": "Nutrition Gallery",
+    "nav.videos": "Videos & Reels",
     "nav.about": "About Me",
     "nav.services": "Services",
     "nav.approach": "Chamber & Hours",
-    "nav.testimonials": "Reviews & Blog",
+    "nav.reviews": "Ratings & Reviews",
     "nav.contact": "Appointment",
     "nav.appointment": "Book Appointment",
     "nav.open": "Open menu",
@@ -174,6 +197,19 @@ export const translations: Record<Lang, Record<string, string>> = {
     "hero.badge.science": "Evidence-Based Nutrition",
     "hero.badge.plan": "Personalised Diet Plan",
 
+    // ── Videos ────────────────────────────────────────────────────────────────
+    "videos.label": "Videos & Health Tips",
+    "videos.heading": "Regular Health & Nutrition Reels",
+    "videos.desc": "Watch simple, evidence-based nutrition tips and wellness guidance from Dietitian Priya Saha.",
+    "videos.badge.official": "Official Facebook Page",
+    "videos.watch.reel": "Watch Reel",
+    "videos.watch.page": "View All Videos",
+    "videos.follow": "Follow on Facebook",
+    "videos.cta.title": "Looking for Daily Nutrition & Health Tips?",
+    "videos.cta.desc": "I regularly share new health awareness videos, dietary guidelines, and informational reels on my official Facebook page. Follow along to stay healthy.",
+    "videos.cta.button": "👉 Watch All Reels & Videos on Facebook",
+    "videos.cta.consult": "Book an Appointment",
+
     // ── About ─────────────────────────────────────────────────────────────────
     "about.label": "About Me",
     "about.heading": "Your Health is My Goal",
@@ -198,6 +234,14 @@ export const translations: Record<Lang, Record<string, string>> = {
     "approach.online": "Online Appointment",
 
     // ── Testimonials ──────────────────────────────────────────────────────────
+    // ── Reviews ──────────────────────────────────────────────────────────────────────────
+    "reviews.label": "Patient Reviews",
+    "reviews.heading": "Ratings & Reviews",
+    "reviews.count": "reviews",
+    "reviews.prev": "Previous page",
+    "reviews.next": "Next page",
+
+    // ── Testimonials ──────────────────────────────────────────────────────────────────────────
     "testimonials.label": "Patient Stories",
     "testimonials.heading": "Real Experiences",
 
@@ -227,6 +271,8 @@ export const translations: Record<Lang, Record<string, string>> = {
     "form.success.title": "Message Sent!",
     "form.success.desc": "We will contact you shortly.",
     "form.success.again": "Send another message",
+    "form.error.title": "Message Not Sent!",
+    "form.error.desc": "Sorry, something went wrong. Please call us directly or try again.",
 
     // ── Nutrition Carousel ────────────────────────────────────────────────────
     "nutrition.badge": "Nutrition & Healthy Lifestyle Gallery",

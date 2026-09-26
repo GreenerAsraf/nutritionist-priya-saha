@@ -33,7 +33,7 @@ export default function MobileActionDock() {
       <div className="flex items-center gap-2 rounded-2xl border border-emerald-300/60 bg-white/95 dark:bg-emerald-950/95 dark:border-emerald-700/60 p-2 shadow-[0_10px_30px_rgba(5,150,105,0.22)] backdrop-blur-xl">
         {/* Quick Call */}
         <a
-          href="tel:01713998166"
+          href="tel:01571159059"
           className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-emerald-50 dark:bg-emerald-900/60 py-3 text-sm font-bold text-emerald-800 dark:text-emerald-200 transition-colors active:bg-emerald-100 dark:active:bg-emerald-800/60"
         >
           <Phone size={17} className="text-emerald-600 dark:text-emerald-400" />

@@ -5,23 +5,24 @@ export const siteConfig = {
     "আপনার সুস্বাস্থ্য-ই, আপনার সম্পদ। সার্টিফাইড ডায়েটিশিয়ান ও পুষ্টিবিদ প্রিয়া সাহার কাছ থেকে বিজ্ঞানসম্মত ডায়েট ও পুষ্টি পরামর্শ নিন।",
   quote: "আপনার সুস্বাস্থ্য-ই, আপনার সম্পদ।",
   email: "hello@priyasaha.com",
-  phone: "+880 1713-998166",
-  phone2: "+880 1571-159059",
+  phone: "+880 1571-159059",
+  phone2: "+880 1713-998166",
   location: "চট্টগ্রাম, বাংলাদেশ",
-  facebook: "https://facebook.com/পুষ্টিবিদ-প্রিয়া-সাহা",
+  facebook: "https://www.facebook.com/share/1DqbWJgtxS/",
+  facebookReels: "https://www.facebook.com/profile.php?id=61583770614580&sk=reels_tab",
   social: {
     instagram: "https://instagram.com/priyasaha",
-    facebook: "https://facebook.com/priyasaha",
+    facebook: "https://www.facebook.com/share/1DqbWJgtxS/",
     linkedin: "https://linkedin.com/in/priyasaha",
   },
 };
 
 export const navLinks = [
-  { href: "#gallery", label: "পুষ্টি গ্যালারি" },
+  { href: "#videos", label: "ভিডিও ও রিলস" },
   { href: "#about", label: "আমার সম্পর্কে" },
   { href: "#services", label: "সেবাসমূহ" },
   { href: "#approach", label: "চেম্বার ও সময়" },
-  { href: "#testimonials", label: "ভিডিও ও ব্লগ" },
+  { href: "#reviews", label: "রেটিং ও মতামত" },
   { href: "#contact", label: "অ্যাপয়েন্টমেন্ট" },
 ];
 
@@ -71,7 +72,7 @@ export const approachSteps = [
     subtitle: "মেহেদীবাগ, চট্টগ্রাম",
     description:
       "৩৫/৩৬, মেহেদীবাগ রোড, চট্টগ্রাম-৪০০০। রুম নং-২০৮, প্রতি রবিবার থেকে শুক্রবার — দুপুর ২টা থেকে ৬টা।",
-    contact: "01713-998166 | 01571-159059 | 031-630682",
+    contact: "01571-159059 | 01713-998166 | 031-630682",
   },
   {
     step: "০২",

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowRight, Sparkles, CheckCircle2, Shield } from "lucide-react";
+import { ArrowRight, Sparkles, CheckCircle2 } from "lucide-react";
 import Image from "next/image";
 import { credentials } from "@/lib/constants";
 import { useT, useLanguage } from "@/lib/language-context";
@@ -31,22 +31,18 @@ export default function Hero() {
 
   return (
     <section className={`relative overflow-hidden pt-8 pb-16 sm:pt-12 sm:pb-22 lg:pt-16 lg:pb-28 ${isDark ? "bg-gradient-to-b from-emerald-950/60 to-transparent" : ""}`}>
-      {/* Ambient Glow Blobs */}
-      {!reduced && (
-        <>
-          <div
-            aria-hidden="true"
-            className="animate-glow pointer-events-none absolute -top-24 right-0 h-[500px] w-[500px] rounded-full bg-gradient-to-br from-emerald-400/20 via-teal-300/15 to-transparent blur-3xl"
-          />
-          <div
-            aria-hidden="true"
-            className="animate-glow pointer-events-none absolute top-1/2 -left-20 h-[400px] w-[400px] rounded-full bg-gradient-to-tr from-amber-400/15 via-emerald-300/10 to-transparent blur-3xl"
-            style={{ animationDelay: "2s" }}
-          />
-        </>
-      )}
+      {/* Ambient Glow Blobs — always in DOM; CSS prefers-reduced-motion disables animation */}
+      <div
+        aria-hidden="true"
+        className="animate-glow pointer-events-none absolute -top-24 right-0 h-[500px] w-[500px] rounded-full bg-gradient-to-br from-emerald-400/20 via-teal-300/15 to-transparent blur-3xl"
+      />
+      <div
+        aria-hidden="true"
+        className="animate-glow pointer-events-none absolute top-1/2 -left-20 h-[400px] w-[400px] rounded-full bg-gradient-to-tr from-amber-400/15 via-emerald-300/10 to-transparent blur-3xl"
+        style={{ animationDelay: "2s" }}
+      />
 
-      <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16">
+      <div className="mx-auto grid max-w-[1560px] items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-10 xl:gap-14 lg:px-8 xl:px-12">
         {/* ── Left content ── */}
         <div className="space-y-6 sm:space-y-7">
           {/* Certified Badge */}
@@ -145,65 +141,27 @@ export default function Hero() {
           </motion.ul>
         </div>
 
-        {/* ── Right — portrait card ── */}
-        <div className="relative mx-auto w-full max-w-md lg:max-w-none">
+        {/* ── Right — half screen banner card ── */}
+        <div className="relative w-full flex items-center justify-center">
           <motion.div
             initial={reduced ? { opacity: 0 } : { opacity: 0, scale: 0.96, y: 15 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.75, delay: 0.25, ease: easeOut }}
-            className={`relative aspect-[4/5] overflow-hidden rounded-3xl p-2 shadow-2xl ring-1 ${
+            className={`relative w-full aspect-[1376/768] overflow-hidden rounded-2xl sm:rounded-3xl p-1.5 sm:p-2.5 shadow-2xl ring-1 transition-all duration-300 hover:shadow-emerald-900/30 ${
               isDark
-                ? "bg-gradient-to-tr from-emerald-700/20 via-emerald-900/80 to-amber-400/10 ring-emerald-700/60 shadow-emerald-950/50"
+                ? "bg-gradient-to-tr from-emerald-700/30 via-emerald-900/60 to-amber-400/10 ring-emerald-700/60 shadow-emerald-950/60"
                 : "bg-gradient-to-tr from-emerald-500/20 via-white to-amber-400/20 ring-emerald-200 shadow-emerald-950/15"
             }`}
           >
-            <div className="relative h-full w-full overflow-hidden rounded-2xl bg-surface-alt">
+            <div className="relative h-full w-full overflow-hidden rounded-xl sm:rounded-2xl bg-surface-alt">
               <Image
-                src="/priya-saha.jpeg"
+                src="/image.png"
                 alt={t("hero.portrait.alt")}
                 fill
-                className="object-cover object-top transition-transform duration-700 hover:scale-105"
+                className="object-cover transition-transform duration-700 hover:scale-[1.02]"
                 priority
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="(max-width: 1024px) 100vw, 50vw"
               />
-
-              {/* Gradient Vignette */}
-              <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-emerald-950/70 via-emerald-950/20 to-transparent pointer-events-none" />
-
-              {/* Name overlay card */}
-              <div className={`absolute bottom-4 left-4 right-4 rounded-xl border p-3 shadow-lg backdrop-blur-md ${
-                isDark ? "border-white/20 bg-emerald-950/80" : "border-white/40 bg-white/90"
-              }`}>
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className={`font-serif text-base font-bold ${isDark ? "text-emerald-100" : "text-emerald-950"}`}>
-                      {t("hero.card.name")}
-                    </p>
-                    <p className={`text-xs font-medium ${isDark ? "text-emerald-400" : "text-muted"}`}>
-                      {t("hero.card.title")}
-                    </p>
-                  </div>
-                  <span className={`flex h-7 w-7 items-center justify-center rounded-full ${isDark ? "bg-emerald-800/80 text-emerald-400" : "bg-emerald-100 text-emerald-700"}`}>
-                    <Shield size={15} />
-                  </span>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Floating Badge */}
-          <motion.div
-            initial={reduced ? { opacity: 0 } : { opacity: 0, x: -12, y: 8 }}
-            animate={{ opacity: 1, x: 0, y: 0 }}
-            transition={{ duration: 0.55, delay: 0.55, ease: easeOut }}
-            className="absolute -bottom-3 -left-2 sm:-bottom-4 sm:-left-4 rounded-2xl bg-gradient-to-r from-amber-500 to-amber-600 p-3 sm:px-5 sm:py-3.5 shadow-xl shadow-amber-500/30 text-white"
-          >
-            <div className="flex items-center gap-2">
-              <Sparkles size={18} className="text-amber-200 shrink-0" />
-              <div>
-                <p className="text-xs sm:text-sm font-bold leading-tight">{t("hero.badge.science")}</p>
-                <p className="text-[11px] text-amber-100 leading-tight">{t("hero.badge.plan")}</p>
-              </div>
             </div>
           </motion.div>
         </div>
