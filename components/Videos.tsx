@@ -6,12 +6,7 @@ import {
   ExternalLink,
   Video,
   Sparkles,
-  Calendar,
-  Share2,
   Heart,
-  Activity,
-  Apple,
-  ShieldAlert,
   Flame,
   Baby,
 } from "lucide-react";
@@ -67,39 +62,6 @@ const reelTopics: ReelTopic[] = [
     gradient: "from-blue-600/90 to-indigo-800/90",
     icon: Baby,
   },
-  {
-    id: "pcos-hormones",
-    tagBn: "হরমোন ও PCOS",
-    tagEn: "PCOS & Hormones",
-    titleBn: "PCOS ও হরমোনাল ভারসাম্য রক্ষায় বিজ্ঞানসম্মত খাদ্যাভ্যাস",
-    titleEn: "Dietary Guidance for PCOS & Hormonal Balance",
-    descBn: "ইনসুলিন রেজিস্ট্যান্স কমিয়ে স্বাভাবিক ওজন ও শারীরিক সুস্থতা ফিরিয়ে আনার ডায়েট।",
-    descEn: "Managing insulin resistance and restoring hormonal rhythm through wholesome food.",
-    gradient: "from-rose-600/90 to-pink-800/90",
-    icon: Sparkles,
-  },
-  {
-    id: "fatty-liver",
-    tagBn: "লিভার ও হার্ট",
-    tagEn: "Heart & Liver",
-    titleBn: "ফ্যাটি লিভার ও উচ্চ রক্তচাপ প্রতিরোধে লো-ফ্যাট ডায়েট",
-    titleEn: "Low-Fat Dietary Guide for Fatty Liver & Hypertension",
-    descBn: "কোলেস্টেরল নিয়ন্ত্রণ এবং রক্তনালী পরিষ্কার রাখতে উপকারী খাদ্যাভ্যাস।",
-    descEn: "Beneficial meal adjustments to regulate cholesterol and maintain vascular health.",
-    gradient: "from-teal-600/90 to-cyan-800/90",
-    icon: Activity,
-  },
-  {
-    id: "kidney-care",
-    tagBn: "কিডনি স্বাস্থ্য",
-    tagEn: "Kidney Care",
-    titleBn: "কিডনির সুস্থতা রক্ষায় সঠিক প্রোটিন ও পানির ভারসাম্য",
-    titleEn: "Optimal Protein & Fluid Balance for Kidney Health",
-    descBn: "কিডনির ওপর অতিরিক্ত চাপ না ফেলে নিরাপদ মাত্রার সুষম খাদ্যাভ্যাস তৈরির কৌশল।",
-    descEn: "Strategies for a balanced renal diet without putting extra load on your kidneys.",
-    gradient: "from-purple-600/90 to-slate-800/90",
-    icon: ShieldAlert,
-  },
 ];
 
 export default function Videos() {
@@ -107,12 +69,11 @@ export default function Videos() {
   const { lang } = useLanguage();
   const { theme } = useTheme();
   const isDark = theme === "dark";
-  const prefersReduced = useReducedMotion();
 
   return (
     <section
       id="videos"
-      className={`relative overflow-hidden py-16 sm:py-24 transition-colors duration-300 ${
+      className={`relative overflow-hidden py-16 sm:py-20 transition-colors duration-300 ${
         isDark ? "bg-[#0b1410]" : "bg-gradient-to-b from-[#f8faf8] via-[#eef6f1]/60 to-[#f8faf8]"
       }`}
     >
@@ -172,9 +133,9 @@ export default function Videos() {
           </Reveal>
         </div>
 
-        {/* Video / Reels Cards Grid */}
-        <div className="mt-12 sm:mt-16">
-          <StaggerReveal className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        {/* Exactly 3 Video / Reels Cards Grid */}
+        <div className="mt-12 sm:mt-14">
+          <StaggerReveal className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {reelTopics.map((reel) => {
               const Icon = reel.icon;
               const tag = lang === "en" ? reel.tagEn : reel.tagBn;
@@ -187,14 +148,14 @@ export default function Videos() {
                     href={siteConfig.facebookReels}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`group relative flex flex-col justify-between overflow-hidden rounded-2xl border p-6 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl ${
+                    className={`group relative flex flex-col justify-between overflow-hidden rounded-3xl border p-6 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl ${
                       isDark
-                        ? "border-emerald-900/60 bg-emerald-950/30 hover:border-emerald-700/80 hover:bg-emerald-900/40"
+                        ? "border-emerald-900/60 bg-emerald-950/40 hover:border-emerald-700/80 hover:bg-emerald-900/40 shadow-emerald-950/40"
                         : "border-emerald-100 bg-white hover:border-emerald-300 hover:shadow-emerald-900/10"
                     }`}
                   >
-                    {/* Top row: badge & duration */}
                     <div>
+                      {/* Top row: badge & duration */}
                       <div className="flex items-center justify-between gap-3 mb-4">
                         <span
                           className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold ${
@@ -219,13 +180,13 @@ export default function Videos() {
 
                       {/* Video graphic preview card */}
                       <div
-                        className={`relative aspect-video w-full rounded-xl overflow-hidden mb-5 bg-gradient-to-br ${reel.gradient} flex items-center justify-center shadow-inner group-hover:scale-[1.02] transition-transform duration-300`}
+                        className={`relative aspect-video w-full rounded-2xl overflow-hidden mb-5 bg-gradient-to-br ${reel.gradient} flex items-center justify-center shadow-inner group-hover:scale-[1.02] transition-transform duration-300`}
                       >
                         <div className="absolute inset-0 bg-black/20 backdrop-blur-[1px]" />
 
                         {/* Centered play button */}
                         <div
-                          className={`relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-white/90 text-emerald-900 shadow-lg backdrop-blur-md transition-all duration-300 group-hover:scale-110 group-hover:bg-white`}
+                          className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-white/90 text-emerald-900 shadow-lg backdrop-blur-md transition-all duration-300 group-hover:scale-110 group-hover:bg-white"
                         >
                           <Play size={24} className="ml-1 fill-emerald-800 text-emerald-800" />
                         </div>
@@ -244,7 +205,7 @@ export default function Videos() {
 
                       {/* Content */}
                       <h3
-                        className={`font-serif text-lg sm:text-xl font-bold line-clamp-2 transition-colors duration-200 group-hover:text-emerald-500 ${
+                        className={`font-serif text-lg font-bold line-clamp-2 transition-colors duration-200 group-hover:text-emerald-500 ${
                           isDark ? "text-emerald-100" : "text-emerald-950"
                         }`}
                       >
@@ -252,7 +213,7 @@ export default function Videos() {
                       </h3>
 
                       <p
-                        className={`mt-2 text-sm line-clamp-2 leading-relaxed ${
+                        className={`mt-2 text-xs sm:text-sm line-clamp-2 leading-relaxed ${
                           isDark ? "text-emerald-300/70" : "text-emerald-700/80"
                         }`}
                       >
@@ -262,7 +223,7 @@ export default function Videos() {
 
                     {/* Bottom CTA link */}
                     <div
-                      className={`mt-5 pt-4 border-t flex items-center justify-between text-sm font-semibold transition-colors duration-200 ${
+                      className={`mt-5 pt-4 border-t flex items-center justify-between text-xs sm:text-sm font-semibold transition-colors duration-200 ${
                         isDark
                           ? "border-emerald-900/60 text-emerald-400 group-hover:text-emerald-300"
                           : "border-emerald-100 text-emerald-700 group-hover:text-emerald-900"
@@ -272,7 +233,7 @@ export default function Videos() {
                         {t("videos.watch.reel")}
                       </span>
                       <ExternalLink
-                        size={15}
+                        size={14}
                         className="transition-transform duration-200 group-hover:translate-x-1"
                       />
                     </div>
@@ -282,61 +243,6 @@ export default function Videos() {
             })}
           </StaggerReveal>
         </div>
-
-        {/* Facebook Page Highlight Banner */}
-        <Reveal delay={0.25} className="mt-12 sm:mt-16">
-          <div
-            className={`relative overflow-hidden rounded-3xl border p-8 sm:p-12 shadow-xl ${
-              isDark
-                ? "border-emerald-800/60 bg-gradient-to-br from-emerald-950/80 via-[#0e2119] to-emerald-950/90 text-white"
-                : "border-emerald-200 bg-gradient-to-br from-emerald-900 via-teal-900 to-emerald-950 text-white shadow-emerald-950/20"
-            }`}
-          >
-            {/* Ambient pattern */}
-            <div
-              aria-hidden="true"
-              className="absolute -right-16 -bottom-16 h-64 w-64 rounded-full bg-emerald-500/10 blur-2xl pointer-events-none"
-            />
-
-            <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8 text-center lg:text-left">
-              <div className="space-y-3 max-w-2xl">
-                <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1 text-xs font-semibold text-emerald-200 backdrop-blur-md border border-white/10">
-                  <Share2 size={13} className="text-amber-400" />
-                  <span>{t("videos.badge.official")}</span>
-                </div>
-
-                <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white">
-                  {t("videos.cta.title")}
-                </h3>
-
-                <p className="text-emerald-100/80 text-sm sm:text-base leading-relaxed">
-                  {t("videos.cta.desc")}
-                </p>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row items-center gap-3.5 w-full sm:w-auto shrink-0">
-                <a
-                  href={siteConfig.facebookReels}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-full bg-gradient-to-r from-emerald-500 to-teal-400 px-7 py-3.5 text-sm sm:text-base font-semibold text-emerald-950 shadow-lg shadow-emerald-900/40 transition-all duration-300 hover:scale-[1.03] hover:from-emerald-400 hover:to-teal-300"
-                >
-                  <span>{t("videos.cta.button")}</span>
-                  <ExternalLink size={16} />
-                </a>
-
-                <a
-                  href="#contact"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 py-3.5 text-sm sm:text-base font-medium text-white backdrop-blur-md transition-all duration-300 hover:bg-white/20"
-                >
-                  <Calendar size={16} />
-                  <span>{t("videos.cta.consult")}</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </Reveal>
       </div>
     </section>
   );
