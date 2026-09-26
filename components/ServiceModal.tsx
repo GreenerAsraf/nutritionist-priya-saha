@@ -122,7 +122,7 @@ export default function ServiceModal({ service, onClose }: Props) {
               <button
                 type="button"
                 onClick={onClose}
-                aria-label={t("nutrition.close")}
+                aria-label={lang === "bn" ? "বন্ধ করুন" : "Close"}
                 className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-colors cursor-pointer ${
                   isDark
                     ? "bg-emerald-800/60 text-emerald-300 hover:bg-emerald-700/60"

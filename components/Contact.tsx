@@ -38,26 +38,12 @@ export default function Contact() {
                     <Phone size={20} aria-hidden="true" />
                   </div>
                   <div>
-                    <p className="text-sm text-muted">{t("contact.phone.max")}</p>
+                    <p className="text-sm text-muted">{t("contact.phone")}</p>
                     <a
                       href="tel:01571159059"
-                      className="font-medium text-primary-dark hover:text-primary transition-colors"
+                      className="font-medium text-primary-dark hover:text-primary transition-colors text-lg"
                     >
-                      01571-159059, 01713-998166
-                    </a>
-                  </div>
-                </li>
-                <li className="flex items-center gap-4">
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                    <Phone size={20} aria-hidden="true" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-muted">{t("contact.phone.rangamati")}</p>
-                    <a
-                      href="tel:01835705031"
-                      className="font-medium text-primary-dark hover:text-primary transition-colors"
-                    >
-                      01835-705031, 01835-870304
+                      01571-159059
                     </a>
                   </div>
                 </li>

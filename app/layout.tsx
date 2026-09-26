@@ -78,7 +78,7 @@ const jsonLd = {
   jobTitle: "Certified Dietitian & Clinical Nutritionist",
   description: siteConfig.description,
   url: "https://priyasaha.com",
-  telephone: [siteConfig.phone, siteConfig.phone2],
+  telephone: siteConfig.phone,
   sameAs: [siteConfig.facebook],
   address: {
     "@type": "PostalAddress",

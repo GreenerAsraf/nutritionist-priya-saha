@@ -4,7 +4,6 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import NutritionCarousel from "@/components/NutritionCarousel";
 import Videos from "@/components/Videos";
 import Reviews from "@/components/Reviews";
 import Services from "@/components/Services";
@@ -17,7 +16,6 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <NutritionCarousel />
         <Videos />
         <About />
         <Services />

@@ -250,6 +250,49 @@ html.dark .form-input {
 
 html.dark .form-input::placeholder { color: var(--muted); opacity: 0.6; }
 
+/* ─── Infinite Marquee Animations ─────────────────────────────────────────── */
+@keyframes marquee-scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-scroll-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes marquee-scroll-up {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+.animate-marquee-left {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: marquee-scroll-left 50s linear infinite;
+}
+
+.animate-marquee-right {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: marquee-scroll-right 50s linear infinite;
+}
+
+.animate-marquee-up {
+  display: flex;
+  flex-direction: column;
+  will-change: transform;
+  animation: marquee-scroll-up 55s linear infinite;
+}
+
+.marquee-pause-hover:hover .animate-marquee-left,
+.marquee-pause-hover:hover .animate-marquee-right,
+.marquee-pause-hover:hover .animate-marquee-up {
+  animation-play-state: paused;
+}
+
 /* ─── Reduced motion ───────────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -261,4 +304,10 @@ html.dark .form-input::placeholder { color: var(--muted); opacity: 0.6; }
   .nav-link::after { transition: none; }
   .social-icon { transition: none; }
   .btn-vibrant::after { animation: none; }
+  .animate-marquee-left,
+  .animate-marquee-right,
+  .animate-marquee-up {
+    animation: none !important;
+  }
 }
+

@@ -307,7 +307,7 @@ export default function Header() {
                     <p className={`text-[11px] ${isDark ? "text-emerald-400" : "text-muted"}`}>{t("nav.rangamati.hours")}</p>
                   </div>
                   <a
-                    href="tel:01835705031"
+                    href="tel:01571159059"
                     className="flex items-center gap-1 rounded-full bg-emerald-600 px-2.5 py-1.5 text-xs font-bold text-white hover:bg-emerald-700"
                   >
                     <Phone size={11} />

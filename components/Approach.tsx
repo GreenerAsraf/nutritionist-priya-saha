@@ -16,21 +16,21 @@ export default function Approach() {
       title: "Max Hospital Ltd.",
       subtitle: "Mehedibagh, Chittagong",
       description: "35/36 Mehedibagh Road, Chittagong-4000. Room No. 208. Sunday to Friday — 2pm to 6pm.",
-      contact: "01713-998166 | 01571-159059 | 031-630682",
+      contact: "01571-159059",
     },
     {
       step: "02",
       title: "Rangamati Healthcare Hospital",
       subtitle: "Rangamati, Chittagong",
       description: "Mahajon Batol, Chandraghona, Rangamati, Chittagong. Saturday, Monday & Thursday — 9am to 12pm.",
-      contact: "01835-705031 | 01835-870304",
+      contact: "01571-159059",
     },
     {
       step: "03",
       title: "Online Consultation",
       subtitle: "From Anywhere",
-      description: "Consult online from home. Book an appointment via the Facebook page or fill in the form below.",
-      contact: "Facebook Page: Nutritionist Priya Saha",
+      description: "Consult online from home. Call directly or book an appointment via the form below.",
+      contact: "01571-159059",
     },
   ];
 
@@ -60,7 +60,7 @@ export default function Approach() {
         <StaggerReveal className="grid gap-6 sm:gap-8 md:grid-cols-3">
           {displaySteps.map((item, index) => {
             const isOnline = index === 2;
-            const primaryPhone = index === 0 ? "01713998166" : index === 1 ? "01835705031" : null;
+            const primaryPhone = "01571159059";
 
             return (
               <StaggerItem key={item.step}>
