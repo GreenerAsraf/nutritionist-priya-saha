@@ -11,10 +11,11 @@ import {
   Users,
   UtensilsCrossed,
   Zap,
+  Sparkles,
 } from "lucide-react";
 import type { IconKey } from "@/lib/services-data";
 
-const icons: Record<IconKey, React.ComponentType<{ size?: number; strokeWidth?: number }>> = {
+const icons: Record<string, React.ComponentType<{ size?: number; strokeWidth?: number }>> = {
   heart: Heart,
   leaf: Leaf,
   baby: Baby,
@@ -27,9 +28,10 @@ const icons: Record<IconKey, React.ComponentType<{ size?: number; strokeWidth?: 
   sun: Sun,
   zap: Zap,
   flask: FlaskConical,
+  sparkles: Sparkles,
 };
 
-export default function ServiceModalIcon({ name }: { name: IconKey }) {
-  const Icon = icons[name];
+export default function ServiceModalIcon({ name }: { name: IconKey | string }) {
+  const Icon = icons[name] || Heart;
   return <Icon size={20} strokeWidth={1.8} />;
 }

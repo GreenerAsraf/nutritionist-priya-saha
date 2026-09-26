@@ -3,6 +3,7 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import WhyConsult from "@/components/WhyConsult";
 import Videos from "@/components/Videos";
 import Reviews from "@/components/Reviews";
 import Services from "@/components/Services";
@@ -15,6 +16,7 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <WhyConsult />
         <Videos />
         <Services />
         <Approach />
