@@ -1,9 +1,15 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowRight, Sparkles, CheckCircle2 } from "lucide-react";
+import {
+  ArrowRight,
+  Sparkles,
+  GraduationCap,
+  Award,
+  Stethoscope,
+  ShieldCheck,
+} from "lucide-react";
 import Image from "next/image";
-import { credentials } from "@/lib/constants";
 import { useT, useLanguage } from "@/lib/language-context";
 import { useTheme } from "@/lib/theme-context";
 
@@ -29,9 +35,23 @@ export default function Hero() {
       ? { initial: { opacity: 0 }, animate: { opacity: 1 }, transition: { duration: 0.2, delay: delay * 0.3 } }
       : fadeItem(delay, y);
 
+  const qualifications = [
+    { key: "about.edu1", icon: GraduationCap },
+    { key: "about.edu2", icon: GraduationCap },
+    { key: "about.edu3", icon: Award },
+    { key: "about.edu4", icon: Award },
+    { key: "about.edu5", icon: Stethoscope },
+    { key: "about.edu6", icon: ShieldCheck },
+  ];
+
   return (
-    <section className={`relative overflow-hidden pt-8 pb-16 sm:pt-12 sm:pb-22 lg:pt-16 lg:pb-28 ${isDark ? "bg-gradient-to-b from-emerald-950/60 to-transparent" : ""}`}>
-      {/* Ambient Glow Blobs — always in DOM; CSS prefers-reduced-motion disables animation */}
+    <section
+      id="about"
+      className={`relative overflow-hidden pt-8 pb-16 sm:pt-12 sm:pb-22 lg:pt-16 lg:pb-24 ${
+        isDark ? "bg-gradient-to-b from-emerald-950/60 to-transparent" : ""
+      }`}
+    >
+      {/* Ambient Glow Blobs */}
       <div
         aria-hidden="true"
         className="animate-glow pointer-events-none absolute -top-24 right-0 h-[500px] w-[500px] rounded-full bg-gradient-to-br from-emerald-400/20 via-teal-300/15 to-transparent blur-3xl"
@@ -77,15 +97,17 @@ export default function Hero() {
 
           {/* Description */}
           <motion.p
-            {...makeProps(0.3)}
-            className={`max-w-lg text-base sm:text-lg leading-relaxed ${isDark ? "text-emerald-300" : "text-muted"}`}
+            {...makeProps(0.26)}
+            className={`max-w-lg text-base sm:text-lg leading-relaxed ${
+              isDark ? "text-emerald-300" : "text-muted"
+            }`}
           >
             {t("hero.desc")}
           </motion.p>
 
           {/* CTAs */}
           <motion.div
-            {...makeProps(0.4)}
+            {...makeProps(0.34)}
             className="flex flex-col gap-3.5 sm:flex-row sm:items-center"
           >
             <motion.a
@@ -99,7 +121,12 @@ export default function Hero() {
               <motion.span
                 aria-hidden="true"
                 animate={reduced ? {} : { x: [0, 5, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut", repeatDelay: 1.5 }}
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  repeatDelay: 1.5,
+                }}
               >
                 <ArrowRight size={18} />
               </motion.span>
@@ -120,25 +147,45 @@ export default function Hero() {
             </motion.a>
           </motion.div>
 
-          {/* Credentials Pills */}
-          <motion.ul {...makeProps(0.5)} className="flex flex-wrap gap-2 pt-2">
-            {credentials.map((item, i) => (
-              <motion.li
-                key={item}
-                initial={reduced ? { opacity: 0 } : { opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.35, delay: 0.5 + i * 0.06, ease: easeOut }}
-                className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs sm:text-sm font-medium shadow-2xs ${
-                  isDark
-                    ? "border-emerald-700/60 bg-emerald-900/60 text-emerald-200"
-                    : "border-emerald-200/80 bg-white/90 text-emerald-900"
-                }`}
-              >
-                <CheckCircle2 size={13} className="text-emerald-500 shrink-0" aria-hidden="true" />
-                <span>{item}</span>
-              </motion.li>
-            ))}
-          </motion.ul>
+          {/* ── Educational Qualifications & Training Section in Hero ── */}
+          <motion.div {...makeProps(0.42)} className="pt-3">
+            <div className="mb-3.5 flex items-center gap-2.5">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/25 bg-primary/10 px-3 py-1 text-[11px] sm:text-xs font-bold uppercase tracking-wider text-primary">
+                <GraduationCap size={14} />
+                {t("about.label")}
+              </span>
+              <h2 className="text-sm sm:text-base font-bold text-foreground">
+                {t("about.heading")}
+              </h2>
+            </div>
+
+            {/* Grid of 6 qualifications with their exact styles */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
+              {qualifications.map((item, i) => {
+                const Icon = item.icon;
+                return (
+                  <motion.div
+                    key={item.key}
+                    initial={reduced ? { opacity: 0 } : { opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                      duration: 0.35,
+                      delay: 0.45 + i * 0.05,
+                      ease: easeOut,
+                    }}
+                    className="group flex items-center gap-3 rounded-2xl border border-border/80 bg-surface/90 p-3 sm:p-3.5 shadow-xs backdrop-blur-xs transition-all duration-300 hover:border-primary/40 hover:bg-surface hover:shadow-sm"
+                  >
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-105 group-hover:bg-primary group-hover:text-white">
+                      <Icon size={19} aria-hidden="true" />
+                    </div>
+                    <span className="text-xs sm:text-sm font-medium text-foreground leading-snug">
+                      {t(item.key)}
+                    </span>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </motion.div>
         </div>
 
         {/* ── Right — half screen banner card ── */}
